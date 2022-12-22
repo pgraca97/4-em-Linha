@@ -1,5 +1,5 @@
 import pygame, sys
-import jogo
+from jogo import *
 from button import Button
 
 
@@ -14,15 +14,10 @@ BG_PLAY_BUTTON = pygame.image.load("assets\Play Rect.png")
 BG_AI_BUTTON = pygame.image.load("assets\Ai Rect.png")
 BG_EXIT_BUTTON = pygame.image.load("assets\Exit Rect.png")
 
-def font(size):
-    #Devolve a font no tamanho que eu quiser
-    return pygame.font.Font("assets/font.ttf", size)
-
-
 def play():
     while True:
         
-        fim_de_jogo=jogo.inicio_jogo()
+        fim_de_jogo=inicio_jogo()
 
         if fim_de_jogo:
             pygame.time.wait(1000)

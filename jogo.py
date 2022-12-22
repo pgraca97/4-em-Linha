@@ -1,4 +1,3 @@
-print(1111111111)
 import numpy as np
 import pygame
 import sys
@@ -13,7 +12,7 @@ rosa = (243,129,199)
 cont_linha = 6
 cont_coluna = 7
 
-secc_tabuleiro = 100 #tamanho de cada círculo do tabuleiro
+secc_tabuleiro = 100 #tamanho de cada "círculo" do tabuleiro
 width = cont_coluna * secc_tabuleiro
 height = (cont_linha+1) * secc_tabuleiro
 
@@ -55,7 +54,7 @@ def vencedor (tabuleiro, peça):
     #Verificar horizontais:
     for c in range(cont_coluna-3):
         for l in range(cont_linha):
-            if tabuleiro[l][c] == peça and tabuleiro[l][c+1] == peça and tabuleiro[l][c] == peça and tabuleiro[l][c+3] == peça:
+            if tabuleiro[l][c] == peça and tabuleiro[l][c+1] == peça and tabuleiro[l][c+2] == peça and tabuleiro[l][c+3] == peça:
                 return True
 
     #Verificar Verticais
@@ -103,6 +102,7 @@ def inicio_jogo():
     vez = 0
 
     desenhar_tabuleiro(tabuleiro)
+    pygame.draw.rect(screen, cor_fundo, (0,0, width, secc_tabuleiro))
     pygame.display.update()
 
 
@@ -127,9 +127,9 @@ def inicio_jogo():
                 pygame.draw.rect(screen, cor_fundo, (0,0, width, secc_tabuleiro))
                 
                 #Jogador 1 joga:
-                if vez == 0: #inserir range de entrada de input
+                if vez == 0: 
                     posx = event.pos[0]
-                    coluna = int(math.floor(posx/secc_tabuleiro))
+                    coluna = int(math.floor(posx/secc_tabuleiro)) #vê onde o mouse está e escolhe essa coluna com base nisso
 
                     if val_local(tabuleiro, coluna):
                         linha = verificar_prox_linha(tabuleiro, coluna)
@@ -144,7 +144,7 @@ def inicio_jogo():
                 #Pedir o input do Jogador 2:
                 else:
                     posx = event.pos[0]
-                    coluna = int(math.floor(posx/secc_tabuleiro))
+                    coluna = int(math.floor(posx/secc_tabuleiro)) #vê onde o mouse está e escolhe essa coluna com base nisso
 
                     if val_local(tabuleiro, coluna):
                         linha = verificar_prox_linha(tabuleiro, coluna)
