@@ -4,7 +4,7 @@ import sys
 import os
 import math
 from tkinter import *
-from tkinter import messagebox
+
 
 os.environ['SDL_VIDEO_CENTERES'] = '1'
 
@@ -26,6 +26,7 @@ height = (cont_linha+1) * secc_tabuleiro
 tamanho = (width, height)
 
 screen = pygame.display.set_mode(tamanho)
+
 btn_font = ("Press Start 2P", 10)
 
 player1 = "Zé Ninguém"
@@ -159,7 +160,8 @@ def nomes_players(msg):
 
     b1 = Button(janela_popup, text = "OK",font=btn_font, command=nomes)
     b1.pack()
-    
+
+
     janela_popup.mainloop()
 
 
@@ -167,7 +169,7 @@ def inicio_jogo():
     #Faz aparecer o jogo em si na janela main - quando se clica em JOGAR MULTIPLAYER.
     nomes_players("Nomes:")
 
-
+    pygame.display.update()
     tabuleiro = criar_tabuleiro()
     fim_de_jogo = False
     vez = 0

@@ -10,6 +10,9 @@ pygame.init() #iniciar o jogo/janela
 #Variáveis Globais
 WINDOW = pygame.display.set_mode((700, 700))
 pygame.display.set_caption("4 em Linha")
+pygame_icon = pygame.image.load('assets\icon.png')
+pygame.display.set_icon(pygame_icon)
+
 BG = pygame.image.load("assets\Background.png")
 
 BG_PLAY_BUTTON = pygame.image.load("assets\Play Rect.png")
