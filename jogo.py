@@ -1,5 +1,7 @@
 import numpy as np
-import pygame, sys, os
+import pygame
+import sys
+import os
 import math
 from tkinter import *
 from tkinter import messagebox

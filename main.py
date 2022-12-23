@@ -1,4 +1,5 @@
-import pygame, sys
+import pygame
+import sys
 from jogo import *
 from jogo_ai_hard import *
 from button_pygame import Button
