@@ -1,6 +1,7 @@
 import pygame, sys
 from jogo import *
-from button import Button
+from jogo_ai_hard import *
+from button_pygame import Button
 
 
 pygame.init() #iniciar o jogo/janela
@@ -17,17 +18,30 @@ BG_EXIT_BUTTON = pygame.image.load("assets\Exit Rect.png")
 def play():
     while True:
         
+
         fim_de_jogo=inicio_jogo()
 
         if fim_de_jogo:
-            pygame.time.wait(1000)
+            pygame.time.wait(2000)
             menu_princ()
 
         pygame.display.update()
 
 
+def play_ai():
+    while True:
+
+        fim= iniciar_jogo()
+
+        if fim:
+            pygame.time.wait(2000)
+            menu_princ()
+        
+        pygame.display.update()
+
+
 def menu_princ(): 
-    #Menu Principal
+    #Menu Principalds
     while True:
         WINDOW.blit(BG, (0,0)) #blit - Block Transfer - copia os conteúdos de uma surface/window para outra
 
@@ -52,8 +66,8 @@ def menu_princ():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if play_button.checkForInput(pos_mouse): #se o input for no botão do "JOGAR" - começa o jogo multiplayer
                     play()
-                #if ai_button.checkForInput(pos_mouse): #se o input for no botão do "JOGAR CONTRA AI" - começa o jogo contra AI
-                    #play_ai()
+                if ai_button.checkForInput(pos_mouse): #se o input for no botão do "JOGAR CONTRA AI" - começa o jogo contra AI
+                    play_ai()
                 if exit_button.checkForInput(pos_mouse): #se o input for no botão do "SAIR" - a janela fecha-se/jogo encerra
                     pygame.quit()
                     sys.exit()
